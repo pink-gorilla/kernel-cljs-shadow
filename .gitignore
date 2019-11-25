@@ -9,4 +9,4 @@ out/public/js/manifest.json
 package-lock.json
 .shadow-cljs/
 yarn.lock
-
+out/public/js/
