@@ -17,7 +17,10 @@
    [clojure.string :as string]
 
    [shadow-eval.kernel :refer [eval-str init]]
-   [demo.examples :refer [source-examples]]))
+   [demo.examples :refer [source-examples]]
+   ;[demo.user]
+
+   ))
 
 
 
