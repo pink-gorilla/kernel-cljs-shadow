@@ -3,13 +3,15 @@
                 [lark/tools "0.1.19"]
                 [maria/shapes "0.1.0"]
                 [thi.ng/geom "0.0.908"]]
- :source-paths ["src"]
+ 
+ :source-paths ["src" "env/dev"]
+ 
  :nrepl        {:port 8703}
  :builds       {:browser   {:target           :browser
                             :output-dir       "out/public/js"
                             :asset-path       "/js"
                             :compiler-options {:optimizations :simple}
-                            :modules          {:base {:entries [shadow-eval.core]}}
+                            :modules          {:base {:entries [demo.core]}}
                             :devtools         {:http-root  "out/public"
                                                :http-port  8702
-                                               :after-load shadow-eval.core/render}}}}
+                                               :after-load demo.core/render}}}}

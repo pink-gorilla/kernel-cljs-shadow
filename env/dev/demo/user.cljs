@@ -1,4 +1,4 @@
-(ns shadow-eval.user
+(ns demo.user
   (:require re-view.hiccup.core
             [cells.cell :refer [cell]]
             [cells.lib :as cell

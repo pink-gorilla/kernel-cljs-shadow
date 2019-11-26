@@ -1,24 +1,24 @@
-(ns shadow-eval.core
+(ns demo.core
   (:require
 
-    ;; evaluate
-    [cljs.js :as cljs]
-    [shadow.cljs.bootstrap.browser :as boot]
-
     ;; view
-    [re-view.core :as v :refer [defview]]
-    [re-view.hiccup.core :refer [element]]
+   [re-view.core :as v :refer [defview]]
+   [re-view.hiccup.core :refer [element]]
 
 
     ;; things to eval and display
-    [lark.value-viewer.core :as views]
-    [re-db.d :as d]
-    [re-db.patterns :as patterns]
-    [cells.cell :as cell]
-    [shapes.core :as shapes]
-    [thi.ng.geom.svg.core :as svg]
+   [lark.value-viewer.core :as views]
+   [re-db.d :as d]
+   [re-db.patterns :as patterns]
+   [cells.cell :as cell]
+   [shapes.core :as shapes]
+   [thi.ng.geom.svg.core :as svg]
 
-    [clojure.string :as string]))
+   [clojure.string :as string]
+
+   [shadow-eval.kernel :refer [eval-str] ]
+   
+   ))
 
 
 ;; Source text to eval
@@ -29,19 +29,7 @@
                       "(cell (interval 100 inc))"
                       "(require '[cljs.js :as cljs])\n\n(fn? cljs/eval-str)"])
 
-;; Set up eval environment
 
-(defonce c-state (cljs/empty-state))
-
-(defn eval-str [source cb]
-  (cljs/eval-str
-    c-state
-    source
-    "[test]"
-    {:eval cljs/js-eval
-     :load (partial boot/load c-state)
-     :ns   (symbol "shadow-eval.user")}
-    cb))
 
 ;; Views
 
