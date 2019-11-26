@@ -1,4 +1,4 @@
-(ns shadow-eval.core
+(ns shadow-eval.kernel
   (:require
 
     ;; evaluate
@@ -22,3 +22,6 @@
     :ns   (symbol "demo.user")}
    cb))
 
+
+(defn init [config cb]
+  (boot/init c-state config cb))

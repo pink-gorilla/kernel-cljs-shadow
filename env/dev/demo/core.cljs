@@ -16,18 +16,11 @@
 
    [clojure.string :as string]
 
-   [shadow-eval.kernel :refer [eval-str] ]
-   
-   ))
+   [shadow-eval.kernel :refer [eval-str init]]
+   [demo.examples :refer [source-examples]]))
 
 
-;; Source text to eval
 
-(def source-examples ["(circle 40)"
-                      "(for [n (range 10)] n)"
-                      "(defcell x 10)"
-                      "(cell (interval 100 inc))"
-                      "(require '[cljs.js :as cljs])\n\n(fn? cljs/eval-str)"])
 
 
 
@@ -57,9 +50,8 @@
         (if error (element [:.pa3.bg-washed-red
                             [:.b (ex-message error)]
                             [:div (str (ex-data error))]
-                            (pr-str (ex-cause error))
-                            ])
-                  [:.pa3 (views/format-value value)])])]))
+                            (pr-str (ex-cause error))])
+            [:.pa3 (views/format-value value)])])]))
 
 (defview examples
   "Root view for the page"
@@ -70,11 +62,11 @@
      (map show-example source-examples)]))
 
 (defonce _
-         (boot/init c-state
-                    {:path         "http://localhost:2705/out/small"
-                     :load-on-init '#{shadow-eval.user }}
-                    (fn []
-                      (d/transact! [[:db/add ::eval-state :ready? true]]))))
+  (init
+   {:path         "http://localhost:2705/out/mariacloud"
+    :load-on-init '#{demo.user}}
+   (fn []
+     (d/transact! [[:db/add ::eval-state :ready? true]]))))
 
 (defn render []
   (v/render-to-dom (examples) "shadow-eval"))

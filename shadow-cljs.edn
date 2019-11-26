@@ -11,7 +11,7 @@
                             :output-dir       "out/public/js"
                             :asset-path       "/js"
                             :compiler-options {:optimizations :simple}
-                            :modules          {:base {:entries [demo.core]}}
+                            :modules          {:base {:entries [demo.core demo.user]}}
                             :devtools         {:http-root  "out/public"
                                                :http-port  8702
                                                :after-load demo.core/render}}}}
