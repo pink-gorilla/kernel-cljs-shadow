@@ -10,3 +10,5 @@ package-lock.json
 .shadow-cljs/
 yarn.lock
 out/public/js/
+out/demo-test-dummy/
+

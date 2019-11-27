@@ -5,7 +5,6 @@
    [re-view.core :as v :refer [defview]]
    [re-view.hiccup.core :refer [element]]
 
-
     ;; things to eval and display
    [lark.value-viewer.core :as views]
    [re-db.d :as d]
@@ -16,14 +15,15 @@
 
    [clojure.string :as string]
 
-   [shadow-eval.kernel :refer [eval-str init]]
+   [pinkgorilla.kernel.cljs-shadow :refer [init!]]
    [demo.examples :refer [source-examples]]
-   ;[demo.user]
 
    ))
 
 
 
+(defn eval-str [source cb]
+  (pinkgorilla.kernel.cljs-shadow/eval-str "demo.user" source cb))
 
 
 
@@ -65,7 +65,7 @@
      (map show-example source-examples)]))
 
 (defonce _
-  (init
+  (init!
    {:path         "http://localhost:2705/out/mariacloud"
     :load-on-init '#{demo.user}}
    (fn []

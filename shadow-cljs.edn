@@ -1,18 +1,34 @@
-{:dependencies 
+{:dependencies
  [[re-view "0.4.6"]
   [lark/cells "0.1.5"]
   [lark/tools "0.1.19"]
   [maria/shapes "0.1.0"]
-  [thi.ng/geom "0.0.908"]]
- 
- :source-paths ["src" "env/dev"]
- 
+  [thi.ng/geom "0.0.908"]
+
+  [org.clojure/spec.alpha  "0.2.176"]
+  [org.clojure/tools.reader "1.3.2"]
+  [org.clojure/core.async  "0.4.474"]
+  [appliedscience/js-interop  "0.1.13"]
+
+  [cljs-http   "0.1.42"]
+  [cljs-await "1.0.2"]
+  
+  ]
+
+
+ :source-paths ["src" "env/dev" "test"]
+
  :nrepl        {:port 8703}
- :builds       {:browser   {:target           :browser
-                            :output-dir       "out/public/js"
-                            :asset-path       "/js"
-                            :compiler-options {:optimizations :simple}
-                            :modules          {:base {:entries [demo.core]}}
-                            :devtools         {:http-root  "out/public"
-                                               :http-port  8702
-                                               :after-load demo.core/render}}}}
+ :builds       {:browser  {:target           :browser
+                           :output-dir       "out/public/js"
+                           :asset-path       "/js"
+                           :compiler-options {:optimizations :simple}
+                           :modules          {:base {:entries [demo.core]}}
+                           :devtools         {:http-root  "out/public"
+                                              :http-port  8702
+                                              :after-load demo.core/render}}
+                :my-tests {:target :browser-test
+                           :test-dir "out/demo-test-dummy"
+                           :devtools
+                           {:http-port 8606
+                            :http-root "out/demo-test-dummy"}}}}
