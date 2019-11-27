@@ -33,4 +33,5 @@
    "(defcell x 10)"
    "(cell (interval 100 inc))"
    "(require '[fortune.core])
-    (fortune.core/cookie)"])
+    (fortune.core/cookie)"
+   "(map inc [1 2 3 5 6])"])

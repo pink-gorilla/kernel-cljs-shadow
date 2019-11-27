@@ -41,6 +41,27 @@
   (and (= status-a status-b)
        (a= a b)))
 
+
+
+(deftest test-eval-fortune-cookie
+  "eval with several expressions"
+  (with-redefs [rand-int (constantly 1)]
+    (async done
+           (go (are [input-clj output-clj]
+                    (b= (<! (the-eval input-clj)) [:ok output-clj])
+
+                 "(ns bongo.trott (:require [fortune.db] [fortune.core]))
+                (fortune.core/cookie)"
+
+                 "nice")
+               (done)))))
+
+
+
+
+
+
+
 (deftest test-eval-2
   "eval with several expressions"
   (async done
@@ -66,16 +87,5 @@
              (done))))
 
 
-(deftest test-eval-fortune-cookie
-  "eval with several expressions"
-  (async done
-         (go (are [input-clj output-clj]
-                  (b= (<! (the-eval input-clj)) [:ok output-clj])
-               
-               "(require '[fortune.core])
-                (fortune.core/cookie)" 
-               
-               "nice"
-               )
-             (done))))
+
 

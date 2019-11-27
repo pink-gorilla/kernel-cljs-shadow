@@ -54,24 +54,32 @@
   (defn- ->callback [e config]
     (fn [cb] (boot/init e config cb)))
 
+
+(def fff (atom true))
+
 (defn init-boot [e config]
   (go
     (let [[err res] (<! (await-cb  (->callback e config)))]
-      (println "loader result: " res))))
+      (println "init-bool loader result: " res))))
 
 
 (def config
   {:path         "http://localhost:2705/out/gorilla"
-   :load-on-init '#{demo.user}})
+   :load-on-init '#{fortune.core}})
 
 (defn create-state-eval []
   (if @st
     (go @st)
     (do
+      (println "creating new cljs state..")
       (reset! st (cljs/empty-state))
-      (init-boot @st config)
+      (if @fff
+        (do
+          (reset! fff false)
+          (init-boot @st config))
+        (go @st)
       ;;(init-custom-macros)
-      )))
+          ))))
 
 (defn- reader-error?
   [e]
