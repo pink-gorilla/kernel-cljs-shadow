@@ -4,7 +4,10 @@
   [lark/tools "0.1.19"]
   [maria/shapes "0.1.0"]
   [thi.ng/geom "0.0.908"]
-
+  
+  ; make sure fortune does not get included here!!!
+  ;[awb99.fortune "0.0.1"]
+  
   [org.clojure/spec.alpha  "0.2.176"]
   [org.clojure/tools.reader "1.3.2"]
   [org.clojure/core.async  "0.4.474"]

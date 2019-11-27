@@ -22,6 +22,7 @@
                 [re-view.core :include-macros true]
                 #_[thi.ng.geom.svg.core :as svg]
                 ;[cljs.js]
+                [fortune.core]
                 )
       (:require-macros [cells.cell :refer [defcell cell]])) 
 "
@@ -31,4 +32,5 @@
    "(for [n (range 10)] n)"
    "(defcell x 10)"
    "(cell (interval 100 inc))"
-   "(require '[cljs.js :as cljs])\n\n(fn? cljs/eval-str)"])
+   "(require '[fortune.core])
+    (fortune.core/cookie)"])

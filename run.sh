@@ -1,1 +1,1 @@
-yarn run shadow-cljs watch  browser;
+shadow-cljs watch  browser;

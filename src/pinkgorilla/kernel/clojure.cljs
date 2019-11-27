@@ -61,7 +61,7 @@
 
 
 (def config
-  {:path         "http://localhost:2705/out/mariacloud"
+  {:path         "http://localhost:2705/out/gorilla"
    :load-on-init '#{demo.user}})
 
 (defn create-state-eval []
