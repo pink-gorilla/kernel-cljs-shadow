@@ -43,20 +43,6 @@
 
 
 
-(deftest test-eval-fortune-cookie
-  "eval with several expressions"
-  (with-redefs [rand-int (constantly 1)]
-    (async done
-           (go (are [input-clj output-clj]
-                    (b= (<! (the-eval input-clj)) [:ok output-clj])
-
-                 "(ns bongo.trott (:require [fortune.db] [fortune.core]))
-                (fortune.core/cookie)"
-
-                 "nice")
-               (done)))))
-
-
 
 
 
@@ -86,6 +72,19 @@
                "(ns my.bb) (def a 1) `(1 a)" '(1 my.bb/a))
              (done))))
 
+
+
+(deftest test-eval-fortune-cookie
+  "eval with several expressions"
+  (with-redefs [rand-int (constantly 1)]  ;; redefs need to be done nside the self hosted clojurescript!!
+    (async done
+           (go (are [input-clj output-clj]
+                    (b= (<! (the-eval input-clj)) [:ok output-clj])
+
+                 "(ns bongo.trott (:require [fortune.db] [fortune.core]))
+                (fortune.core/cookie 7)"
+                 "Don’t pursue happiness – create it.")
+               (done)))))
 
 
 
