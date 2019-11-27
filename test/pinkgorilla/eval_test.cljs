@@ -64,3 +64,18 @@
                "`(1 2)" '(1 2)
                "(ns my.bb) (def a 1) `(1 a)" '(1 my.bb/a))
              (done))))
+
+
+(deftest test-eval-fortune-cookie
+  "eval with several expressions"
+  (async done
+         (go (are [input-clj output-clj]
+                  (b= (<! (the-eval input-clj)) [:ok output-clj])
+               
+               "(require '[fortune.core])
+                (fortune.core/cookie)" 
+               
+               "nice"
+               )
+             (done))))
+
