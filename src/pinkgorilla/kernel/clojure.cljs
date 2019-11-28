@@ -73,7 +73,7 @@
     (do
       (println "creating new cljs state..")
       (reset! st (cljs/empty-state))
-      (if @fff
+      (if  @fff
         (do
           (reset! fff false)
           (init-boot @st config))
@@ -213,7 +213,7 @@
     (binding [ana/*cljs-warning-handlers* [(partial warning-handler warnings-chan)]]
       (with-redefs [;compiler/emits (partial my-emits max-eval-duration) ;; TODO Dec 19 2018 - it breaks simple compilation
                     ]
-                                        ; we have to set `env/*compiler*` because `binding` and core.async don't play well together (https://www.reddit.com/r/Clojure/comments/4wrjw5/withredefs_doesnt_play_well_with_coreasync/) and the code of `eval-str` uses `binding` of `env/*compiler*`.
+        ; we have to set `env/*compiler*` because `binding` and core.async don't play well together (https://www.reddit.com/r/Clojure/comments/4wrjw5/withredefs_doesnt_play_well_with_coreasync/) and the code of `eval-str` uses `binding` of `env/*compiler*`.
         (cljs/eval-str st
                        s
                        "my.klipse"
@@ -364,6 +364,16 @@
                       (result-as-str opts))
           _ (<! warnings-chan)]
       res-str)))
+
+
+(defn eval-full [s opts]
+  (go
+    (let [[res-chan warnings-chan] (core-eval s opts)
+          res-str (-> (<! res-chan)
+                      (result-as-str opts))
+          w (<! warnings-chan)]
+      [res-str w])))
+
 
 
 (defn the-eval
