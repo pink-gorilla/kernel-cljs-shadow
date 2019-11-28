@@ -7,12 +7,8 @@
                              :username "pinkgorillawb"
                              :sign-releases false}]]
   :dependencies
-  [[thheller/shadow-cljs "2.0.40"] ; needed for the deopendency loader in self hosted clojurescript
+  [ ; dependencies of cljs-kernel-shadow. The gorilla-notebook will automatically fetch this transient dependencies
+   [thheller/shadow-cljs "2.0.40"] ; needed for the deopendency loader in self hosted clojurescript
    [cljs-await "1.0.2"]  ; "promisify cllbacks"
-   ;[re-view "0.4.6"]
-   ;[lark/cells "0.1.5"]
-   ;[lark/tools "0.1.19"]
-   ;[maria/shapes "0.1.0"]
-   ;[thi.ng/geom "0.0.908"]
    ]
   :source-paths ["src"])

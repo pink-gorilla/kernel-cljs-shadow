@@ -27,7 +27,6 @@
       (:require-macros [cells.cell :refer [defcell cell]])) 
 "
    
-   
    "(circle 40)"
    "(for [n (range 10)] n)"
    "(defcell x 10)"

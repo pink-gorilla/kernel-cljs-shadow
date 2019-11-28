@@ -50,16 +50,16 @@
 ;;                       "(require-macros '[klipse-clj.macros :refer [dbg inferred-type]])"]]
 ;;      (<! (first (core-eval-an-exp my-macros {:st @st :ns current-ns-eval}))))))
 
-
-  (defn- ->callback [e config]
-    (fn [cb] (boot/init e config cb)))
+   "(ns demo.user)"
+  (defn- ->callback [cst config]
+    (fn [cb] (boot/init cst config cb)))
 
 
 (def fff (atom true))
 
-(defn init-boot [e config]
+(defn init-boot [cst config]
   (go
-    (let [[err res] (<! (await-cb  (->callback e config)))]
+    (let [[err res] (<! (await-cb  (->callback cst config)))]
       (println "init-bool loader result: " res))))
 
 

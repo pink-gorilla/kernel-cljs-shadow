@@ -50,7 +50,7 @@
 (defonce _
   (init!
    {:path         "http://localhost:2705/out/mariacloud"
-    :load-on-init '#{fortune.core}}
+    :load-on-init '#{fortune.core cells.cell cells.lib}}
    (fn []
      (println "ready!!")
      (d/transact! [[:db/add ::eval-state :ready? true]]))))
