@@ -65,7 +65,9 @@
 
 (def config
   {:path         "http://localhost:2705/out/gorilla"
-   :load-on-init '#{fortune.core awb99.shapes.core}})
+   :load-on-init '#{fortune.core 
+                    awb99.shapes.core
+                    quil.core}})
 
 (defn create-state-eval []
   (if @st
