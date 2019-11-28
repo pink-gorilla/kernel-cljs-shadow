@@ -1,32 +1,29 @@
 {:dependencies
- [
-  [org.clojure/spec.alpha  "0.2.176"]
+ [[org.clojure/spec.alpha  "0.2.176"]
   [org.clojure/tools.reader "1.3.2"]
   [org.clojure/core.async  "0.4.474"]
-  
+
+  ;[thheller/shadow-cljs "2.0.40"] ; not needed as shadow-cljs is executing this file already
+  [cljs-await "1.0.2"]  ; "promisify cllbacks"
+
   [appliedscience/js-interop  "0.1.13"] ; for js stuff - currently not needed 
   [cljs-http   "0.1.42"]
-  [cljs-await "1.0.2"]  ; "promisify cllbacks"
-  
 
-  ; this are  dev only dependencies:
-  
+  ; dependencies o demo-app in :demo build
   [re-view "0.4.6"]
   [lark/cells "0.1.5"]
   [lark/tools "0.1.19"]
   [maria/shapes "0.1.0"]
-  [thi.ng/geom "0.0.908"]
-
-  ; make sure fortune does not get included here!!!
-  ;[awb99.fortune "0.0.1"]
-  
-  ]
+  [thi.ng/geom "0.0.908"]]
 
 
- :source-paths ["src" "env/dev" "test"]
+ :source-paths ["src"   ; cljs-kernel-shadow
+                "test"  ; unit tests for cljs-kernel-test 
+                "env/dev"  ; demo app
+                ]
 
  :nrepl        {:port 8703}
- :builds       {:browser  {:target           :browser
+ :builds       {:demo     {:target           :browser
                            :output-dir       "out/public/js"
                            :asset-path       "/js"
                            :compiler-options {:optimizations :simple}
