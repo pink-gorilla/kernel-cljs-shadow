@@ -22,7 +22,8 @@
                 [re-view.core :include-macros true]
                 #_[thi.ng.geom.svg.core :as svg]
                 ;[cljs.js]
-                [fortune.core]
+                ;[fortune.core]
+                ;[\"moment.js\" :as m]
                 )
       (:require-macros [cells.cell :refer [defcell cell]])) 
 "
@@ -33,4 +34,7 @@
    "(cell (interval 100 inc))"
    "(require '[fortune.core])
     (fortune.core/cookie)"
-   "(map inc [1 2 3 5 6])"])
+   "(map inc [1 2 3 5 6])"
+   "(moment)"
+
+   ])

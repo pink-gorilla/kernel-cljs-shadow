@@ -67,7 +67,11 @@
   {:path         "http://localhost:2705/out/gorilla"
    :load-on-init '#{fortune.core 
                     awb99.shapes.core
-                    quil.core}})
+                    quil.core
+                    ;quil.middleware
+                    ;quil.sketch
+                    ;quil.util
+                    reagent.core}})
 
 (defn create-state-eval []
   (if @st

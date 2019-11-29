@@ -3,7 +3,7 @@
   [org.clojure/tools.reader "1.3.2"]
   [org.clojure/core.async  "0.4.474"]
 
-  ;[thheller/shadow-cljs "2.0.40"] ; not needed as shadow-cljs is executing this file already
+  ;[thheller/shadow-cljs "2.8.76"] ; not needed as shadow-cljs is executing this file already
   [cljs-await "1.0.2"]  ; "promisify cllbacks"
 
   [appliedscience/js-interop  "0.1.13"] ; for js stuff - currently not needed 
