@@ -36,6 +36,13 @@
    ;gadjett.core-fn
    ))
 
+;shadow.js.
+; shadow.js.jsRequire ("full-string-name")
+
+(defn test! []
+  (.log js/console "hello, world!")
+  )
+;  (j/call js/goog :getObjectByName (str name))
 
 (declare core-eval-an-exp)
 
@@ -65,13 +72,14 @@
 
 (def config
   {:path         "http://localhost:2705/out/gorilla"
-   :load-on-init '#{fortune.core 
+   :load-on-init '#{fortune.core
                     awb99.shapes.core
                     quil.core
-                    ;quil.middleware
+                    quil.middleware
                     ;quil.sketch
                     ;quil.util
-                    reagent.core}})
+                    reagent.core
+                    pinkgorilla.shadow}})
 
 (defn create-state-eval []
   (if @st

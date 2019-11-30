@@ -9,7 +9,7 @@
   [appliedscience/js-interop  "0.1.13"] ; for js stuff - currently not needed 
   [cljs-http   "0.1.42"]
 
-  ; dependencies o demo-app in :demo build
+  ; dependencies of demo-app in :demo build
   [re-view "0.4.6"]
   [lark/cells "0.1.5"]
   [lark/tools "0.1.19"]
