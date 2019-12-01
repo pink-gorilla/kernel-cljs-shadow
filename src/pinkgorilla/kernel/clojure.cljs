@@ -79,7 +79,9 @@
                     ;quil.sketch
                     ;quil.util
                     reagent.core
-                    pinkgorilla.shadow}})
+                    pinkgorilla.shadow
+                    module$node_modules$moment$moment   ; namespace convention of shadow-cljs for npm modules
+                    }})
 
 (defn create-state-eval []
   (if @st
