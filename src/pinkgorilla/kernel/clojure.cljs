@@ -69,33 +69,22 @@
     (let [[err res] (<! (await-cb  (->callback cst config)))]
       (println "init-bool loader result: " res))))
 
+(def config (atom nil) )
 
-(def config
-  {:path         "http://localhost:2705/out/gorilla"
-   :load-on-init '#{fortune.core
-                    awb99.shapes.core
-                    quil.core
-                    quil.middleware
-                    ;quil.sketch
-                    ;quil.util
-                    reagent.core
-                    pinkgorilla.shadow
-                    module$node_modules$moment$moment   ; namespace convention of shadow-cljs for npm modules
-                    ajax.core ; http requests
-                    pinkgorilla.ui.leaflet
-                    pinkgorilla.ui.player ; video player
-                    }})
+(defn init! [newconfig]
+  (reset! config newconfig))
+
 
 (defn create-state-eval []
   (if @st
     (go @st)
     (do
-      (println "creating new cljs state..")
+      (println "initializing cljs state..")
       (reset! st (cljs/empty-state))
-      (if  @fff
+      (if  (and @fff (not (nil? @config)))
         (do
           (reset! fff false)
-          (init-boot @st config))
+          (init-boot @st @config))
         (go @st)
       ;;(init-custom-macros)
           ))))

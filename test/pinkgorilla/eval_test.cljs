@@ -7,20 +7,34 @@
    [cljs.core.async :refer [<!]]
    [clojure.string :as string]
    [pinkgorilla.kernel.repl :refer [reset-state-eval! reset-ns-eval!]]
-   [pinkgorilla.kernel.clojure :refer [read-string create-state-eval the-eval result-as-str split-expressions eval-full]]))
+   [pinkgorilla.kernel.clojure :refer [read-string init! create-state-eval  the-eval result-as-str split-expressions eval-full]]))
+
+
+(def config
+  {:path         "http://localhost:2705/out/gorilla"
+   :load-on-init '#{fortune.core
+                    awb99.shapes.core
+                    quil.core
+                    quil.middleware
+                    ;quil.sketch
+                    ;quil.util
+                    reagent.core
+                    pinkgorilla.shadow
+                    module$node_modules$moment$moment   ; namespace convention of shadow-cljs for npm modules
+                    ;ajax.core ; http requests
+                    pinkgorilla.ui.leaflet
+                    pinkgorilla.ui.player ; video player
+                    }})
 
 
 
 
-
-(def ^:dynamic *klipse-settings* {})
-(def ^:dynamic *verbose?* false)
-
-(set! *klipse-settings* {;:cached_ns_root "http://localhost:8080/"
-                         ;:bundled_ns_root "cljs-out/dev/"
-                         :verbose true})
-
-(set! *verbose?* true)
+; (def ^:dynamic *klipse-settings* {})
+; (def ^:dynamic *verbose?* false)
+; (set! *klipse-settings* {;:cached_ns_root "http://localhost:8080/"
+;                         ;:bundled_ns_root "cljs-out/dev/"
+;                         :verbose true})
+;(set! *verbose?* true)
 
 (defn remove-chars [s]
   (if (string? s)
@@ -30,10 +44,11 @@
 (use-fixtures :each
   {:before #(async done
                    (go ;(reset-state-eval!)
-                       (reset-ns-eval!)
-                       ;(<! (create-state-eval))
-                       (println "test setup done.")
-                       (done)))})
+                     (init! config)
+                     (reset-ns-eval!)
+                     (<! (create-state-eval))
+                     (println "test setup done.")
+                     (done)))})
 
 (defn a= [& args]
   (apply = (map remove-chars args)))
@@ -52,7 +67,8 @@
                "(ns hatschie)
                 (not-so-beautiful 7)
                  "
-               ["Execution error.\nERROR: TypeError: Cannot read property 'call' of undefined"
+               ["Execution error.\nERROR: TypeError: hatschie.not_so_beautiful is undefined"
+               ;["Execution error.\nERROR: TypeError: Cannot read property 'call' of undefined"
                 nil])
              (done))))
 
