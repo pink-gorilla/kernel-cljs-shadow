@@ -1,10 +1,13 @@
-Example usage of `shadow-cljs` bootstrap builds.
+kernel-cljs-shadow
+
+A clojurescript kernel that uses shadow-cljs for dependency management.
+Works with kernel-shadow-cljs as dependency server.
+
 
 ```
-git clone https://github.com/mhuebert/shadow-bootstrap-example.git;
-cd shadow-bootstrap-example;
-yarn install;
-yarn run shadow-cljs watch  browser;
+./clean.sh
+./install.sh
+./demo-run.sh
 ```
 
-After it has finished, you should be able to view at http://localhost:8702
+demo-run.sh opens browser window at http://localhost:8702

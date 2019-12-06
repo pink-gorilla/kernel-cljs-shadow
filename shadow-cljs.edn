@@ -5,7 +5,7 @@
 
   ;[thheller/shadow-cljs "2.8.76"] ; not needed as shadow-cljs is executing this file already
   [cljs-await "1.0.2"]  ; "promisify cllbacks"
-
+  
   [appliedscience/js-interop  "0.1.13"] ; for js stuff - currently not needed 
   [cljs-http   "0.1.42"]
 
@@ -23,6 +23,7 @@
                 ]
 
  :nrepl        {:port 8703}
+ 
  :builds       {:demo     {:target           :browser
                            :output-dir       "out/public/js"
                            :asset-path       "/js"
@@ -31,6 +32,7 @@
                            :devtools         {:http-root  "out/public"
                                               :http-port  8702
                                               :after-load demo.core/render}}
+                
                 :my-tests {:target :browser-test
                            :test-dir "out/demo-test-dummy"
                            :devtools
