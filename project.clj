@@ -1,4 +1,4 @@
-(defproject  org.pinkgorilla/kernel-cljs-shadow "0.0.16"
+(defproject  org.pinkgorilla/kernel-cljs-shadow "0.0.17"
   :description "A cljs kernel using shadow-cljs for PinkGorilla Notebook."
   :url "https://github.com/pink-gorilla/kernel-cljs-shadow"
   :license {:name "MIT"}
