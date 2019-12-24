@@ -2,8 +2,7 @@
   (:require
     ;; evaluate
    [cljs.js :as cljs]
-   [shadow.cljs.bootstrap.browser :as boot]
-   ))
+   [shadow.cljs.bootstrap.browser :as boot]))
 
 
 ;; Set up eval environment
@@ -14,14 +13,14 @@
   (boot/init c-state config cb))
 
 
-(defn eval-str [ns-str source cb] 
+(defn eval-str [ns-str source cb]
   (cljs/eval-str
    c-state
    source
    "[kernel-cljs]"
    {:eval cljs/js-eval
     :load (partial boot/load c-state)
-    :ns   (symbol ns-str )}
+    :ns   (symbol ns-str)}
    cb))
 
 
