@@ -1,5 +1,5 @@
 (ns pinkgorilla.kernel.errors
-  (:require 
+  (:require
    [cljs.spec.alpha :as spec]
    [goog.string :as gstring]
    [goog.string.format]))
@@ -25,13 +25,13 @@
                                (instance? js/URIError t) 'js/URIError
                                (instance? js/Error t) 'js/Error
                                :else nil)}
-                 (when-let [msg (ex-message t)]
-                   {:message msg})
-                 (when-let [ed (ex-data t)]
-                   {:data ed})
-                 #_(let [st (extract-canonical-stacktrace t)]
-                   (when (pos? (count st))
-                     {:at st}))))
+                      (when-let [msg (ex-message t)]
+                        {:message msg})
+                      (when-let [ed (ex-data t)]
+                        {:data ed})
+                      #_(let [st (extract-canonical-stacktrace t)]
+                          (when (pos? (count st))
+                            {:at st}))))
         via (loop [via [], t o]
               (if t
                 (recur (conj via t) (ex-cause t))
@@ -39,12 +39,12 @@
         root (peek via)]
     (merge {:via   (vec (map base via))
             :trace nil #_(extract-canonical-stacktrace (or root o))}
-      (when-let [root-msg (ex-message root)]
-        {:cause root-msg})
-      (when-let [data (ex-data root)]
-        {:data data})
-      (when-let [phase (-> o ex-data :clojure.error/phase)]
-        {:phase phase}))))
+           (when-let [root-msg (ex-message root)]
+             {:cause root-msg})
+           (when-let [data (ex-data root)]
+             {:data data})
+           (when-let [phase (-> o ex-data :clojure.error/phase)]
+             {:phase phase}))))
 
 (defn ex-triage
   "Returns an analysis of the phase, error, cause, and location of an error that occurred
@@ -101,7 +101,7 @@
            (or fn (and source method)) (assoc :clojure.error/symbol (or fn (vector #_java-loc->source source method)))
            file (assoc :clojure.error/source file)
            problems (assoc :clojure.error/spec data))))
-      :clojure.error/phase phase)))
+     :clojure.error/phase phase)))
 
 (defn ex-str
   "Returns a string from exception data, as produced by ex-triage.
@@ -121,37 +121,37 @@
 
       :macro-syntax-check
       (format "Syntax error macroexpanding %sat (%s).\n%s"
-        (if symbol (str symbol " ") "")
-        loc
-        (if spec
-          (with-out-str
-            (spec/explain-out
-              (if true #_(= s/*explain-out* s/explain-printer)
-                (update spec ::spec/problems
-                  (fn [probs] (map #(dissoc % :in) probs)))
-                spec)))
-          (format "%s\n" cause)))
+              (if symbol (str symbol " ") "")
+              loc
+              (if spec
+                (with-out-str
+                  (spec/explain-out
+                   (if true #_(= s/*explain-out* s/explain-printer)
+                       (update spec ::spec/problems
+                               (fn [probs] (map #(dissoc % :in) probs)))
+                       spec)))
+                (format "%s\n" cause)))
 
       :macroexpansion
       (format "Unexpected error%s macroexpanding %sat (%s).\n%s\n"
-        cause-type
-        (if symbol (str symbol " ") "")
-        loc
-        cause)
+              cause-type
+              (if symbol (str symbol " ") "")
+              loc
+              cause)
 
       :compile-syntax-check
       (format "Syntax error%s compiling %sat (%s).\n%s\n"
-        cause-type
-        (if symbol (str symbol " ") "")
-        loc
-        cause)
+              cause-type
+              (if symbol (str symbol " ") "")
+              loc
+              cause)
 
       :compilation
       (format "Unexpected error%s compiling %sat (%s).\n%s\n"
-        cause-type
-        (if symbol (str symbol " ") "")
-        loc
-        cause)
+              cause-type
+              (if symbol (str symbol " ") "")
+              loc
+              cause)
 
       :read-eval-result
       (format "Error reading eval result%s at %s (%s).\n%s\n" cause-type symbol loc cause)
@@ -162,19 +162,19 @@
       :execution
       (if spec
         (format "Execution error - invalid arguments to %s at (%s).\n%s"
-          symbol
-          loc
-          (with-out-str
-            (spec/explain-out
-              (if true #_(= s/*explain-out* s/explain-printer)
-                (update spec ::spec/problems
-                  (fn [probs] (map #(dissoc % :in) probs)))
-                spec))))
+                symbol
+                loc
+                (with-out-str
+                  (spec/explain-out
+                   (if true #_(= s/*explain-out* s/explain-printer)
+                       (update spec ::spec/problems
+                               (fn [probs] (map #(dissoc % :in) probs)))
+                       spec))))
         (format "Execution error%s at %s(%s).\n%s\n"
-          cause-type
-          (if symbol (str symbol " ") "")
-          loc
-          cause)))))
+                cause-type
+                (if symbol (str symbol " ") "")
+                loc
+                cause)))))
 
 (defn error->str [error]
   (ex-str (ex-triage (Error->map error))))

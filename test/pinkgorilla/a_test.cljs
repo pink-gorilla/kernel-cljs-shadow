@@ -5,10 +5,7 @@
   (:require
    [cljs.test :refer [deftest is are async use-fixtures]]
    [cljs.core.async :refer [<!]]
-   [clojure.string :as string]
-  
-   ))
-
+   [clojure.string :as string]))
 
 (defn add [x y] (+ x y))
 

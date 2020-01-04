@@ -9,7 +9,6 @@
    [pinkgorilla.kernel.repl :refer [reset-state-eval! reset-ns-eval!]]
    [pinkgorilla.kernel.clojure :refer [read-string init! create-state-eval  the-eval result-as-str split-expressions eval-full]]))
 
-
 (def config
   {:path         "http://localhost:2705/out/gorilla"
    :load-on-init '#{fortune.core
@@ -36,6 +35,7 @@
 ;                         :verbose true})
 ;(set! *verbose?* true)
 
+
 (defn remove-chars [s]
   (if (string? s)
     (string/replace s #"\n|\s" "")
@@ -57,7 +57,6 @@
   (and (= status-a status-b)
        (a= a b)))
 
-
 (deftest test-eval-full-errors
   "eval calling a non existing function should produce an error"
   (async done
@@ -71,10 +70,6 @@
                ;["Execution error.\nERROR: TypeError: Cannot read property 'call' of undefined"
                 nil])
              (done))))
-
-
-
-
 
 (deftest test-eval-expressions-multiple
   "eval with several expressions"
@@ -113,8 +108,6 @@
 
              (done))))
 
-
-
 (deftest test-eval-fortune-cookie
   "eval fortune cookie"
   (with-redefs [rand-int (constantly 1)]  ;; redefs need to be done nside the self hosted clojurescript!!
@@ -128,21 +121,19 @@
                  "Don’t pursue happiness – create it.")
                (done)))))
 
-
 (deftest test-eval-full-warnings
   "eval fortune cookie with warnings"
   (async done
          (go (are [input-clj output-clj]
-                  (b= (<! (eval-full input-clj {})) [ [:ok (first output-clj)] (last output-clj)])
+                  (b= (<! (eval-full input-clj {})) [[:ok (first output-clj)] (last output-clj)])
 
                "(ns bongo.trott2 (:require [fortune.db] [fortune.core]))
                   (println \"ggg \")
                   (println \"ggg \")
                   (+ x 7)
                   (fortune.core/cookie 7)"
-               ["\"Don’t pursue happiness – create it.\"\n" 
-                "WARNING: Use of undeclared Var bongo.trott2/x at line 1 \n"
-                ])
+               ["\"Don’t pursue happiness – create it.\"\n"
+                "WARNING: Use of undeclared Var bongo.trott2/x at line 1 \n"])
              (done))))
 
 

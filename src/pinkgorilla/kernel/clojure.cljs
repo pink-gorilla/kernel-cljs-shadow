@@ -20,8 +20,6 @@
    [cljs.js :as cljs]
    [cljs.tagged-literals :as tags]
 
-
-
    [pinkgorilla.kernel.errors :refer [error->str]] ;; once error->str is in cljs, take it from there
    [pinkgorilla.kernel.repl :refer [get-completions current-alias-map
                                     st create-state-compile
@@ -40,8 +38,7 @@
 ; shadow.js.jsRequire ("full-string-name")
 
 (defn test! []
-  (.log js/console "hello, world!")
-  )
+  (.log js/console "hello, world!"))
 ;  (j/call js/goog :getObjectByName (str name))
 
 (declare core-eval-an-exp)
@@ -57,10 +54,10 @@
 ;;                       "(require-macros '[klipse-clj.macros :refer [dbg inferred-type]])"]]
 ;;      (<! (first (core-eval-an-exp my-macros {:st @st :ns current-ns-eval}))))))
 
-   "(ns demo.user)"
-  (defn- ->callback [cst config]
-    (fn [cb] (boot/init cst config cb)))
 
+"(ns demo.user)"
+(defn- ->callback [cst config]
+  (fn [cb] (boot/init cst config cb)))
 
 (def fff (atom true))
 
@@ -69,11 +66,10 @@
     (let [[err res] (<! (await-cb  (->callback cst config)))]
       (println "init-bool loader result: " res))))
 
-(def config (atom nil) )
+(def config (atom nil))
 
 (defn init! [newconfig]
   (reset! config newconfig))
-
 
 (defn create-state-eval []
   (if @st
@@ -87,7 +83,7 @@
           (init-boot @st @config))
         (go @st)
       ;;(init-custom-macros)
-          ))))
+        ))))
 
 (defn- reader-error?
   [e]
@@ -197,7 +193,6 @@
                        (put! c res))))
     c))
 
-
 (defn warning-handler [c warning-type env extra]
   (when (warning-type ana/*cljs-warnings*)
     (when-let [s (ana/error-message warning-type extra)]
@@ -274,7 +269,6 @@
           [(s/replace first-exp #"^[\s\n]*" "")
            rest-s])))))
 
-
 (defn read-string
   "A good way to read a string as cljs.reader/read-string has many bugs."
   ([s] (read-string s @st @current-ns-eval))
@@ -289,7 +283,6 @@
      (let [reader (rt/string-push-back-reader s)]
        (r/read reader)))))
 
-
 (defn split-expressions [s]
   (loop [s s res []]
     (if (empty? s)
@@ -299,13 +292,10 @@
           (recur rest-s res)
           (recur rest-s (conj res exp)))))))
 
-
-
 (defn populate-err [err {:keys [result-element container]}]
   (when (and container (not result-element))
     (gdom/setTextContent container (display-err (:error err))))
   err)
-
 
 (def completions get-completions)
 
@@ -338,7 +328,6 @@
           (populate-err {:error e} opts))))
     [res-chan warnings-chan]))
 
-
 (defn core-compile [s opts]
   (go
     (try
@@ -354,7 +343,6 @@
       (catch js/Object e
         {:error e}))))
 
-
 (defn eval-async-map [s opts]
   (go
     (let [[res-chan warnings-chan] (core-eval s opts)
@@ -364,7 +352,6 @@
       {:warnings warnings
        :res res-str})))
 
-
 (defn eval-async [s opts]
   (go
     (let [[res-chan warnings-chan] (core-eval s opts)
@@ -373,7 +360,6 @@
           _ (<! warnings-chan)]
       res-str)))
 
-
 (defn eval-full [s opts]
   (go
     (let [[res-chan warnings-chan] (core-eval s opts)
@@ -381,8 +367,6 @@
                       (result-as-str opts))
           w (<! warnings-chan)]
       [res-str w])))
-
-
 
 (defn the-eval
   "used for testing"

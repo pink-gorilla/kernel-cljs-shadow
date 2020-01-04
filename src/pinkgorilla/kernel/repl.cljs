@@ -14,7 +14,6 @@
 ; the following code is advanced compilation friendly
 (js* "if(typeof window !== \"undefined\") {window.cljs.user = {}}")
 
-
 (defonce ^:public current-ns-eval (atom 'cljs.user))
 (defonce ^:public current-ns-compile (atom 'cljs.user))
 
@@ -23,7 +22,6 @@
 
 (defn reset-ns-compile! []
   (reset! current-ns-compile 'cljs.user))
-
 
 (defonce st (atom nil))
 
@@ -90,7 +88,6 @@
   [value opts]
   ;; TODO: find a better implementaion - look at planck.repl
   (prn value))
-
 
 (defn- str-butlast
   [s]
@@ -197,14 +194,12 @@
   {:pre [(symbol? ns)]}
   (get-in @@st [::ana/namespaces ns]))
 
-
 (defn- get-macro-var
   [env sym macros-ns]
   {:pre [(symbol? macros-ns)]}
   (when-let [macro-var (with-compiler-env @st
                          (resolve-var env (symbol macros-ns (name sym))))]
     (assoc macro-var :ns macros-ns)))
-
 
 (defn- get-aenv
   []
@@ -266,7 +261,6 @@
                                                           (symbol (str (:ns var)) (str fname))))
                                       :arglists (seq sigs)}]))
                        (into {})))))))))
-
 
 (defn- completion-candidates-for-ns
   [ns-sym allow-private?]
@@ -381,7 +375,6 @@
     (or (get-in st [:cljs.analyzer/namespaces alias :name])
         (alias (current-alias-map))
         alias)))
-
 
 (defn- completion-candidates
   [top-form? typed-ns]
