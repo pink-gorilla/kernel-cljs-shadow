@@ -1,6 +1,5 @@
 (ns pinkgorilla.kernel.macros
-  (:require [cljs.analyzer]
-            ))
+  (:require [cljs.analyzer]))
 
 
 ;;(defmacro dbg [x]
@@ -14,7 +13,6 @@
   `(let [x# ~x]
      (println (str '~x ": ") x#)
      x#))
-
 
 (defmacro inferred-type
   "Returns the inferred type tag for the supplied form."

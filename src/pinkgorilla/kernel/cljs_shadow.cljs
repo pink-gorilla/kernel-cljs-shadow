@@ -7,11 +7,11 @@
 
 ;; Set up eval environment
 
+
 (defonce c-state (cljs/empty-state))
 
 (defn init! [config cb]
   (boot/init c-state config cb))
-
 
 (defn eval-str [ns-str source cb]
   (cljs/eval-str

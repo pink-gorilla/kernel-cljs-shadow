@@ -6,9 +6,6 @@ out/public/js/cljs-runtime
 out/public/js/base.js**
 out/public/js/manifest.json
 *.iml
-package-lock.json
 .shadow-cljs/
-yarn.lock
 out/public/js/
 out/demo-test-dummy/
-pom.xml
