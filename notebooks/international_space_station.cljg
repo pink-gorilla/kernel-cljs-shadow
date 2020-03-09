@@ -1,0 +1,59 @@
+;; gorilla-repl.fileformat = 2
+
+;; @@ [meta]
+{:name "International Space Station Tracker", :tagline "International Space Station Tracker", :tags "cljs,cool,ui,iss,sparkline", :description ""}
+
+;; @@
+
+;; **
+;;; # ISS Location tracker
+;; **
+
+;; @@ [cljs]
+; Define Namespace for your notebook and require namespaces 
+(ns iss-location-tracker
+  (:require 
+   [pinkgorilla.shadow] 
+   [module$node_modules$moment$moment]
+   [reagent.core :as r]
+   [ajax.core :refer [GET POST]]
+   [pinkgorilla.ui.leaflet :refer [mymap]]
+   )) 
+
+;; @@
+;; ->
+;;;  type: data: nil
+;; <-
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
+;; <=
+
+;; @@ [cljs]
+(pinkgorilla.kernel.cljs-tools/r! [mymap [51.505 -0.09]])
+;; @@
+;; ->
+;;;  type: data: #object[pinkgorilla.kernel.cljs-tools.t_pinkgorilla$kernel$cljs_tools83749]
+;; <-
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
+;; <=
+
+;; @@ [cljs]
+^:r [mymap [51.505 -0.09]]
+;; @@
+;; ->
+;;;  type: data: [#object[pinkgorilla$ui$leaflet$mymap] [51.505 -0.09]]
+;; <-
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",false]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=
