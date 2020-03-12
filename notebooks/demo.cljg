@@ -15,15 +15,12 @@
 (fortune.core/cookie)
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"Of all our human resources, the most precious is the desire to improve.\""],"~:value","\"Of all our human resources, the most precious is the desire to improve.\""]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"The early bird gets the worm, but the second mouse gets the cheese.\""],"~:value","\"The early bird gets the worm, but the second mouse gets the cheese.\""]
 ;; <=
 
 ;; @@ [cljs]
 (def x "bongo")
 ;; @@
-;; ->
-;;;  type: data: #'cljs.user/x
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'cljs.user/x"],"~:value","#'cljs.user/x"]
 ;; <=
@@ -31,9 +28,6 @@
 ;; @@ [cljs]
 x
 ;; @@
-;; ->
-;;;  type: data: "bongo"
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"bongo\""],"~:value","\"bongo\""]
 ;; <=
@@ -43,9 +37,6 @@ x
 (defn add-vatican [a b] "adds 2 numbers, but also withholds obulus to the vatican"
   (- (+ a b) 1))
 ;; @@
-;; ->
-;;;  type: data: #'cljs.user/add-vatican
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'cljs.user/add-vatican"],"~:value","#'cljs.user/add-vatican"]
 ;; <=
@@ -53,9 +44,6 @@ x
 ;; @@ [cljs]
 (add-vatican 10 5)
 ;; @@
-;; ->
-;;;  type: data: 14
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"14"],"~:value","14"]
 ;; <=
@@ -64,9 +52,6 @@ x
 ; what happens if we forget one of the parameters?
 (add-vatican 10)
 ;; @@
-;; ->
-;;;  type: data: ##NaN
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"##NaN"],"~:value","##NaN"]
 ;; <=
@@ -87,9 +72,6 @@ x
 ; if namespaces get changed then this effects the processing of prior segments.  
 (ns bongo.trott)
 ;; @@
-;; ->
-;;;  type: data: nil
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
 ;; <=
@@ -97,9 +79,6 @@ x
 ;; @@ [cljs]
 (map inc (map inc [7 8 9]))
 ;; @@
-;; ->
-;;;  type: data: (9 10 11)
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:list-like","~:open",["~:span",["^ ","~:class","clj-lazy-seq"],"("],"~:close",["^3",["^ ","^4","clj-lazy-seq"],")"],"~:separator",["^3"," "],"~:items",["~#list",[["^ ","^0","~:html","~:content",["^3",["^ ","^4","clj-long"],"9"],"~:value","9"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-long"],"10"],"^;","10"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-long"],"11"],"^;","11"]]],"^;","(9 10 11)"]
 ;; <=
@@ -113,9 +92,6 @@ x
 (rf/dispatch [:click-count] "done")
 
 ;; @@
-;; ->
-;;;  type: data: #error {:message "Could not require re-frame.core", :data {:tag :cljs/analysis-error}, :cause #object[Error Error: Assert failed: (compile-state-ref? compile-state-ref)]}
-;; <-
 
 ;; @@ [cljs]
 ; infinite seq
@@ -135,9 +111,6 @@ x
   ([x] x)
   ([x y] y))
 ;; @@
-;; ->
-;;;  type: data: #'bongo.trott/foo
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'bongo.trott/foo"],"~:value","#'bongo.trott/foo"]
 ;; <=
@@ -145,9 +118,6 @@ x
 ;; @@ [cljs]
 (foo 7)
 ;; @@
-;; ->
-;;;  type: data: 7
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"7"],"~:value","7"]
 ;; <=
@@ -173,10 +143,6 @@ x
  (map inc [1 2 3])
  (+ 4 5 6))
 ;; @@
-;; ->
-;;;  type: data: (map inc [1 2 3]) => (2 3 4)
-;;; (+ 4 5 6) => 15
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-symbol"],"(map inc [1 2 3]) => (2 3 4)\n(+ 4 5 6) => 15\n"],"~:value","(map inc [1 2 3]) => (2 3 4)\n(+ 4 5 6) => 15\n"]
 ;; <=
@@ -184,9 +150,6 @@ x
 ;; @@ [cljs]
 (+ "hello " "my dear")
 ;; @@
-;; ->
-;;;  type: data: "hello my dear"
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"hello my dear\""],"~:value","\"hello my dear\""]
 ;; <=
@@ -194,9 +157,6 @@ x
 ;; @@ [cljs]
 (<= "apples" "oranges")
 ;; @@
-;; ->
-;;;  type: data: true
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-boolean"],"true"],"~:value","true"]
 ;; <=
@@ -204,9 +164,6 @@ x
 ;; @@ [cljs]
 (+ 3 4 7777)
 ;; @@
-;; ->
-;;;  type: data: 7784
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"7784"],"~:value","7784"]
 ;; <=
@@ -214,9 +171,6 @@ x
 ;; @@ [cljs]
 (+ 77 7)
 ;; @@
-;; ->
-;;;  type: data: 84
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"84"],"~:value","84"]
 ;; <=
@@ -225,18 +179,12 @@ x
 ;meta data on var - not working
 ^{:foo 8} 77
 ;; @@
-;; ->
-;;;  type: data: #error {:message "Metadata can not be applied to 77. Metadata can only be applied to IMetas.", :data {:type :reader-exception, :ex-kind :reader-error}}
-;; <-
 
 ;; @@ [cljs]
 ;meta data on fn
 (def ^{:foo 8} t 67)
 (def ^{:foo 8} p 70)
 ;; @@
-;; ->
-;;;  type: data: #'my.best$macros/p
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'my.best$macros/p"],"~:value","#'my.best$macros/p"]
 ;; <=
@@ -244,9 +192,6 @@ x
 ;; @@ [cljs]
 t
 ;; @@
-;; ->
-;;;  type: data: 67
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"67"],"~:value","67"]
 ;; <=
@@ -255,9 +200,6 @@ t
 ; it seems shadow has problems with meta
 (meta t)
 ;; @@
-;; ->
-;;;  type: data: nil
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
 ;; <=
@@ -266,9 +208,6 @@ t
 ; shadow does bnot have doc yet
 (doc t)
 ;; @@
-;; ->
-;;;  type: data: #error {:message "ERROR", :data {:tag :cljs/analysis-error}, :cause #object[TypeError TypeError: my.best$macros.doc is undefined]}
-;; <-
 
 ;; @@ [clj]
 

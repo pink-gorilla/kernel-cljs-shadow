@@ -83,11 +83,8 @@
  
 
 ;; @@
-;; ->
-;;;  type: data: #'cljs.user/svg-data
-;; <-
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'cljs.user/svg-data"],"~:value","#'cljs.user/svg-data"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'my.best$macros/svg-data"],"~:value","#'my.best$macros/svg-data"]
 ;; <=
 
 ;; @@ [cljs]
@@ -107,9 +104,6 @@
 ;; @@ [cljs]
 (pinkgorilla.kernel.cljs-tools/r! [:canvas#bongo {:width 500 :height 500} ])
 ;; @@
-;; ->
-;;;  type: data: #object[pinkgorilla.kernel.cljs-tools.t_pinkgorilla$kernel$cljs_tools88254]
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
 ;; <=
@@ -147,9 +141,6 @@
 (draw-sierp canvas [[0 500] [250 0] [500 500]] 6)
 
 ;; @@
-;; ->
-;;;  type: data: nil
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
 ;; <=
