@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.pinkgorilla</groupId>
   <artifactId>kernel-cljs-shadow</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.18</version>
+  <version>0.0.22</version>
   <name>kernel-cljs-shadow</name>
   <description>A cljs kernel using shadow-cljs for PinkGorilla Notebook.</description>
   <url>https://github.com/pink-gorilla/kernel-cljs-shadow</url>
@@ -16,7 +17,7 @@
     <url>https://github.com/pink-gorilla/kernel-cljs-shadow</url>
     <connection>scm:git:git://github.com/pink-gorilla/kernel-cljs-shadow.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/kernel-cljs-shadow.git</developerConnection>
-    <tag>7d866d3cbde88ecc9eb11de87694849372a896c0</tag>
+    <tag>215f54ef7e8f74003e212b938e1f3f4081187d78</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -48,7 +49,7 @@
     </repository>
     <repository>
       <id>clojars</id>
-      <url>https://clojars.org/repo</url>
+      <url>https://repo.clojars.org/</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
@@ -81,6 +82,12 @@
           <groupId>org.clojure</groupId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>clj-kondo</groupId>
+      <artifactId>clj-kondo</artifactId>
+      <version>2019.11.23</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
