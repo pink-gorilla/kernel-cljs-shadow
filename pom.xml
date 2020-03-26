@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>kernel-cljs-shadow</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.22</version>
+  <version>0.0.23</version>
   <name>kernel-cljs-shadow</name>
   <description>A cljs kernel using shadow-cljs for PinkGorilla Notebook.</description>
   <url>https://github.com/pink-gorilla/kernel-cljs-shadow</url>
@@ -17,7 +17,7 @@
     <url>https://github.com/pink-gorilla/kernel-cljs-shadow</url>
     <connection>scm:git:git://github.com/pink-gorilla/kernel-cljs-shadow.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/kernel-cljs-shadow.git</developerConnection>
-    <tag>215f54ef7e8f74003e212b938e1f3f4081187d78</tag>
+    <tag>669edfc927571a8e377d6a35f81ad1c3bcbac458</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
