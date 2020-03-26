@@ -9,3 +9,6 @@ out/public/js/manifest.json
 .shadow-cljs/
 out/public/js/
 out/demo-test-dummy/
+.classpath
+.project
+.settings/*
