@@ -7,10 +7,10 @@
    [cljs.core.async :refer [<!]]
    [clojure.string :as string]
    [pinkgorilla.kernel.repl :refer [reset-state-eval! reset-ns-eval!]]
-   [pinkgorilla.kernel.clojure :refer [read-string init! create-state-eval  the-eval result-as-str split-expressions eval-full]]))
+   [pinkgorilla.kernel.clojurescript :refer [read-string init! create-state-eval  the-eval result-as-str split-expressions eval-full]]))
 
 (def config
-  {:path         "http://localhost:2705/out/gorilla"
+  {:path         "http://localhost:2705/bundles/gorilla"
    :load-on-init '#{fortune.core
                     awb99.shapes.core
                     quil.core

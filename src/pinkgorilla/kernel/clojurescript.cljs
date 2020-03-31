@@ -1,4 +1,4 @@
-(ns pinkgorilla.kernel.clojure
+(ns pinkgorilla.kernel.clojurescript
   (:require-macros
    [pinkgorilla.kernel.macros :refer [dbg]]
    [cljs.core.async.macros :refer [go go-loop]])
@@ -180,7 +180,7 @@
                   ]
       (cljs/eval-str st
                      s
-                     "compile.klipse"
+                     "kernel.clojurescript"
                      {:eval       eval-for-compilation
                       :ns         @ns
                       :static-fns static-fns

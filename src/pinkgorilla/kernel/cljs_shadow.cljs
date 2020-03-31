@@ -1,7 +1,6 @@
 (ns pinkgorilla.kernel.cljs-shadow
   (:require
-    ;; evaluate
-   [cljs.js :as cljs]
+   [cljs.js :as cljs] ;; evaluate
    [shadow.cljs.bootstrap.browser :as boot]))
 
 

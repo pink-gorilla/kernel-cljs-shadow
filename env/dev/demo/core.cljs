@@ -1,6 +1,5 @@
 (ns demo.core
   (:require
-
    [clojure.string :as string]
 
     ;; view
@@ -49,7 +48,7 @@
 
 (defonce _
   (init!
-   {:path         "http://localhost:2705/out/mariacloud"
+   {:path         "http://localhost:2705/bundles/mariacloud"
     :load-on-init '#{;fortune.core 
                      cells.cell 
                      cells.lib
