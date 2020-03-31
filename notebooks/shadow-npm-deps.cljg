@@ -37,15 +37,13 @@
 (f/cookie)
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"Don’t pursue happiness – create it.\""],"~:value","\"Don’t pursue happiness – create it.\""]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"The best way to get rid of an enemy is to make a friend.\""],"~:value","\"The best way to get rid of an enemy is to make a friend.\""]
 ;; <=
 
 ;; @@ [cljs]
+; 2019 03 31 awb99: broken - not sure why. this used to work.
 (.now m)
 ;; @@
-;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"1583762441209"],"~:value","1583762441209"]
-;; <=
 
 ;; @@ [cljs]
 (.log js/console "This prints out to browser console.")
@@ -59,8 +57,9 @@
 ;; **
 
 ;; @@ [cljs]
+; 2019 03 31 awb99: broken - not sure why. this used to work.
 ; listing works ony when no compression used in js bundle
-(. js/shadow.js -files)
+;(. js/shadow.js -files)
 ;; @@
 
 ;; @@ [cljs]
@@ -78,5 +77,19 @@
 (.now moment)
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"1583762567610"],"~:value","1583762567610"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"1585642795400"],"~:value","1585642795400"]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
 ;; <=

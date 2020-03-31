@@ -15,7 +15,7 @@
 (fortune.core/cookie)
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"The early bird gets the worm, but the second mouse gets the cheese.\""],"~:value","\"The early bird gets the worm, but the second mouse gets the cheese.\""]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-string"],"\"Be on the alert to recognize your prime at whatever time of your life it may occur.\""],"~:value","\"Be on the alert to recognize your prime at whatever time of your life it may occur.\""]
 ;; <=
 
 ;; @@ [cljs]

@@ -21,9 +21,6 @@
    [quil.core]
    [quil.middleware]))
 ;; @@
-;; ->
-;;;  type: data: nil
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
 ;; <=
@@ -47,9 +44,6 @@
                                :color (repeatedly 3 #(rand-int 250))}))
 
 ;; @@
-;; ->
-;;;  type: data: #'mydemo.quil/update-state
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'mydemo.quil/update-state"],"~:value","#'mydemo.quil/update-state"]
 ;; <=
@@ -73,22 +67,16 @@
       (fn []
         [:div])})))
 ;; @@
-;; ->
-;;;  type: data: #'mydemo.quil/canvas
-;; <-
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'mydemo.quil/canvas"],"~:value","#'mydemo.quil/canvas"]
 ;; <=
 
 ;; @@ [cljs]
-(pinkgorilla.kernel.cljs-tools/r! 
+(pinkgorilla.notebook.repl/r! 
  [canvas])
 ;; @@
-;; ->
-;;;  type: data: #object[pinkgorilla.kernel.cljs-tools.t_pinkgorilla$kernel$cljs_tools78075]
-;; <-
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
+;;; {}
 ;; <=
 
 ;; @@ [clj]

@@ -13,13 +13,10 @@
 ;; **
 
 ;; @@ [cljs]
-(pinkgorilla.kernel.cljs-tools/r! [:h1 "svg data in cljs"])
+(pinkgorilla.notebook.repl/r! [:h1 "svg data in cljs"])
 ;; @@
-;; ->
-;;;  type: data: #object[pinkgorilla.kernel.cljs-tools.t_pinkgorilla$kernel$cljs_tools88254]
-;; <-
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:h1","svg data in cljs"],"~:map-keywords",true]]
 ;; <=
 
 ;; **
@@ -84,17 +81,14 @@
 
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'my.best$macros/svg-data"],"~:value","#'my.best$macros/svg-data"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'cljs.user/svg-data"],"~:value","#'cljs.user/svg-data"]
 ;; <=
 
 ;; @@ [cljs]
-(pinkgorilla.kernel.cljs-tools/r! svg-data)
+(pinkgorilla.notebook.repl/r! svg-data)
 ;; @@
-;; ->
-;;;  type: data: #object[pinkgorilla.kernel.cljs-tools.t_pinkgorilla$kernel$cljs_tools88254]
-;; <-
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:svg",["^ ","~:viewbox","-10 -10 116 111"],["~:path",["^ ","~:d","M0,0  h7.75     a45.5,45.5 0 1 1 0,91     h-7.75     v-20     h7.75     a25.5,25.5 0 1 0 0,-51     h-7.75     z     m36.2510,0     h32     a27.75,27.75 0 0 1 21.331,45.5     a27.75,27.75 0 0 1 -21.331,45.5     h-32     a53.6895,53.6895 0 0 0 18.7464,-20     h13.2526     a7.75,7.75 0 1 0 0,-15.5     h-7.75     a53.6895,53.6895 0 0 0 0,-20     h7.75     a7.75,7.75 0 1 0 0,-15.5     h-13.2526     a53.6895,53.6895 0 0 0 -18.7464,-20     z   ","~:fill","#bbb"]],["~:g",["^ ","~:stroke-opacity","0.3","~:stroke-width","0.15","~:stroke","currentColor","^7","none"],["~:line",["^ ","~:y2","0","~:y1","0","~:x2","200","~:x1","-100"]],["^;",["^ ","^<","20","^=","20","^>","200","^?","-100"]],["^;",["^ ","^<","35.5","^=","35.5","^>","200","^?","-100"]],["^;",["^ ","^<","45.5","^=","45.5","^>","200","^?","-100"]],["^;",["^ ","^<","55.5","^=","55.5","^>","200","^?","-100"]],["^;",["^ ","^<","71","^=","71","^>","200","^?","-100"]],["^;",["^ ","^<","91","^=","91","^>","200","^?","-100"]],["^;",["^ ","^<","200","^=","-100","^>","0","^?","0"]],["^;",["^ ","^<","200","^=","-100","^>","7.75","^?","7.75"]],["^;",["^ ","^<","200","^=","-100","^>","60.5","^?","60.5"]],["^;",["^ ","^<","200","^=","-100","^>","68.25","^?","68.25"]],["^;",["^ ","^<","200","^=","-100","^>","96","^?","96"]]],["~:g",["^ ","^7","blue"],["~:circle",["^ ","~:r",".5","~:cy","45.5","~:cx","7.75"]],["^@",["^ ","~:r",".5","^A","27.75","^B","68.25"]],["^@",["^ ","~:r",".5","^A","63.25","^B","68.25"]]],["~:g",["^ ","^7","red"],["^@",["^ ","~:r",".5","^A","0","^B","36.2510"]],["^@",["^ ","~:r",".5","^A","20","^B","54.9974"]],["^@",["^ ","~:r",".5","^A","35.5","^B","60.5"]],["^@",["^ ","~:r",".5","^A","55.5","^B","60.5"]],["^@",["^ ","~:r",".5","^A","71","^B","54.9974"]],["^@",["^ ","~:r",".5","^A","91","^B","36.2510"]],["^@",["^ ","~:r",".5","^A","45.5","^B","89.5807"]]],["~:g",["^ ","^9","0.15","^:","currentColor","^7","none"],["^@",["^ ","~:r","25.5","^A","45.5","^B","7.75"]],["^@",["^ ","~:r","45.5","^A","45.5","^B","7.75"]],["^@",["^ ","~:r","53.6895","^A","45.5","^B","7.75"]],["^@",["^ ","~:r","7.75","^A","27.75","^B","68.25"]],["^@",["^ ","~:r","27.75","^A","27.75","^B","68.25"]],["^@",["^ ","~:r","7.75","^A","63.25","^B","68.25"]],["^@",["^ ","~:r","27.75","^A","63.25","^B","68.25"]]]],"~:map-keywords",true]]
 ;; <=
 
 ;; **
@@ -102,10 +96,10 @@
 ;; **
 
 ;; @@ [cljs]
-(pinkgorilla.kernel.cljs-tools/r! [:canvas#bongo {:width 500 :height 500} ])
+(pinkgorilla.notebook.repl/r! [:canvas#bongo {:width 500 :height 500} ])
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:canvas#bongo",["^ ","~:width",500,"~:height",500]],"~:map-keywords",true]]
 ;; <=
 
 ;; @@ [cljs]
@@ -177,18 +171,16 @@
 (reagent/render-component [hello-world] (. js/document (getElementById "app")))
 
 ;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'qil-demo/update"],"~:value","#'qil-demo/update"]
+;; <=
 
-;; @@ [clj]
-https://github.com/reagent-project/reagent-cookbook/tree/master/recipes/canvas-fills-div
-http://lambdafunk.com/2017-03-30-Interactive-Sierpinski-Triangle/
-https://github.com/stathissideris/dali
-https://stackoverflow.com/questions/33345084/quil-sketch-on-a-reagent-canvas
-
-https://github.com/reagent-project/reagent-cookbook/tree/master/recipes/canvas-fills-div
-https://wiki.sagemath.org/interact/fractal
-http://lambdafunk.com/2017-02-16-Random-Polygons/
-
-;; @@
-;; ->
-;;; 
-;; <-
+;; **
+;;; - https://github.com/reagent-project/reagent-cookbook/tree/master/recipes/canvas-fills-div
+;;; - http://lambdafunk.com/2017-03-30-Interactive-Sierpinski-Triangle/
+;;; - https://github.com/stathissideris/dali
+;;; - https://stackoverflow.com/questions/33345084/quil-sketch-on-a-reagent-canvas
+;;; - https://github.com/reagent-project/reagent-cookbook/tree/master/recipes/canvas-fills-div
+;;; - https://wiki.sagemath.org/interact/fractal
+;;; - http://lambdafunk.com/2017-02-16-Random-Polygons/
+;; **
