@@ -12,3 +12,4 @@ out/demo-test-dummy/
 .classpath
 .project
 .settings/*
+.lsp
